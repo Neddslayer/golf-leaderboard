@@ -11,7 +11,7 @@ export async function POST(request: Request) {
     const client = await MongoClient.connect(dbURI);
     console.log('Connected successfully to server');
     const db = client.db("leaderboard");
-    const scoresCollection = db.collection('scores');
+    const scoresCollection = db.collection('score');
     const { value, username } = data;
     const result = await scoresCollection.insertOne({ value, username });
     console.log(`Inserted new score with ID: ${result.insertedId}`);
