@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 //const mongo = require('mongodb');
 import mongo from "mongodb"
-const dbURI = process.env.DB_URI;
+const dbURI = "mongodb+srv://neddslayer32:1VriAZ5dg55pBoWh@cluster0.jdq8qyd.mongodb.net/?retryWrites=true&w=majority";
 const MongoClient = require('mongodb').MongoClient;
 //const dbURI = process.env.DB_URI;
 // 1VriAZ5dg55pBoWh
@@ -33,7 +33,7 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      {leaderboard?.sort((a, b) => a.value - b.value).map((section) => {
+      {leaderboard?.sort((a: { value: number; }, b: { value: number; }) => a.value - b.value).map((section: { id: any; }) => {
         return <LeaderboardSection key={section.id} note={section} />;
       })}
     </main>
