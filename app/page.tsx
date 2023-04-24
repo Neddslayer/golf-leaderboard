@@ -19,7 +19,7 @@ async function getLeaderboard() {
     headers: {
       'Content-Type': 'application/json',
       'Access-Control-Request-Headers': '*',
-      'api-key': process.env.API_KEY,
+      'api-key': 'S6PDd0p1XO84hYdJZhLKn9DIFO7BLVxHqbr4hspjF3KqPfDGPfud76teCkTs8jOS',
     },
     body: data
   });
