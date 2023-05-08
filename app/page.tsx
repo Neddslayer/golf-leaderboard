@@ -33,6 +33,10 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <div className='grid-container' style={{width:'100%', fontSize:'1.75rem', padding: 20}}>
+        <h2 className='grid-item username' style={inter.style}>Username</h2>
+        <h2 className='grid-item value' style={inter.style}>Score</h2>
+      </div>
       {leaderboard?.sort((a: { value: number; }, b: { value: number; }) => a.value - b.value).map((section: { id: any; }) => {
         return <LeaderboardSection key={section.id} note={section} />;
       })}
