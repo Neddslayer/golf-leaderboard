@@ -39,7 +39,6 @@ export default async function Home() {
         <h2 className='grid-item value' style={inter.style}>Score</h2>
       </div>
       {leaderboard?.sort((a: { value: number; }, b: { value: number; }) => a.value - b.value).map((section: { id: any; }, index: number) => {
-        {console.log(index)}
         return <LeaderboardSection note={section} pos={index} />;
       })}
     </main>
@@ -47,7 +46,6 @@ export default async function Home() {
 }
 function LeaderboardSection({ note, pos }: any) {
   const { value, username } = note || {};
-  console.log(pos)
   return (
     <div className='grid-container fadeInDown' style={{width:'100%', fontSize:'1.5rem', padding: 20, animationDelay: pos*100 + "ms", opacity: 0, animationFillMode: "forwards" }}>
       <h2 className='grid-item username' style={inter.style}>{username}</h2>
