@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { IntegerType } from 'mongodb';
 const inter = Inter({ subsets: ['latin'] })
 
 async function getLeaderboard() {
@@ -33,21 +34,22 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className='grid-container' style={{width:'100%', fontSize:'2rem', padding: 20}}>
+      <div className='grid-container fadeInDown' style={{width:'100%', fontSize:'2rem', padding: 20}}>
         <h2 className='grid-item username' style={inter.style}>Username</h2>
         <h2 className='grid-item value' style={inter.style}>Score</h2>
       </div>
-      {leaderboard?.sort((a: { value: number; }, b: { value: number; }) => a.value - b.value).map((section: { id: any; }) => {
-        return <LeaderboardSection key={section.id} note={section} />;
+      {leaderboard?.sort((a: { value: number; }, b: { value: number; }) => a.value - b.value).map((section: { id: any; }, index: number) => {
+        {console.log(index)}
+        return <LeaderboardSection note={section} pos={index} />;
       })}
     </main>
   )
 }
-function LeaderboardSection({ note }: any) {
+function LeaderboardSection({ note, pos }: any) {
   const { value, username } = note || {};
-
+  console.log(pos)
   return (
-    <div className='grid-container' style={{width:'100%', fontSize:'1.5rem', padding: 20}}>
+    <div className='grid-container fadeInDown' style={{width:'100%', fontSize:'1.5rem', padding: 20, animationDelay: pos*100 + "ms", opacity: 0, animationFillMode: "forwards" }}>
       <h2 className='grid-item username' style={inter.style}>{username}</h2>
       <h2 className='grid-item value' style={inter.style}>{value}</h2>
     </div>
