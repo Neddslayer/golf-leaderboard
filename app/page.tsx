@@ -34,12 +34,12 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className='grid-container fadeInDown' style={{width:'100%', fontSize:'2rem', padding: 20}}>
+      <div className='grid-container fadeInDown leaderboardTitle'>
         <h2 className='grid-item username' style={inter.style}>Username</h2>
         <h2 className='grid-item value' style={inter.style}>Score</h2>
       </div>
       {leaderboard?.sort((a: { value: number; }, b: { value: number; }) => a.value - b.value).map((section: { id: any; }, index: number) => {
-        return <LeaderboardSection note={section} pos={index} />;
+        return <LeaderboardSection note={section} pos={index} key={section.id} />;
       })}
     </main>
   )
@@ -47,7 +47,7 @@ export default async function Home() {
 function LeaderboardSection({ note, pos }: any) {
   const { value, username } = note || {};
   return (
-    <div className='grid-container fadeInDown' style={{width:'100%', fontSize:'1.5rem', padding: 20, animationDelay: pos*100 + "ms", opacity: 0, animationFillMode: "forwards" }}>
+    <div className='grid-container fadeInDown leaderboardPlayer' style={{ animationDelay: pos*100 + "ms" }}>
       <h2 className='grid-item username' style={inter.style}>{username}</h2>
       <h2 className='grid-item value' style={inter.style}>{value}</h2>
     </div>

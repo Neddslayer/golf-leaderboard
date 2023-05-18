@@ -46,6 +46,26 @@ body {
   text-align: right;
 }
 
+.leaderboardPlayer {
+  width:100%;
+  font-size:1.5rem;
+  padding: 2rem;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.leaderboardTitle {
+  width:100%;
+  font-size:2.25rem;
+  padding: 2rem;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
 @keyframes fadeInDown {
   from {
     opacity: 0;
